@@ -1,0 +1,23 @@
+<template id="app-tmpl">
+  Hello {{name}}
+</template>
+
+<my-app name="Bram"></my-app>
+
+<script type="module">
+  import { Element } from 'https://unpkg.com/bram@0.6.0/bram.js';
+
+  class MyApp extends Element {
+    static get template() {
+      return '#app-tmpl';
+    }
+
+    constructor() {
+      super();
+      this.model.name = this.getAttribute('name');
+    }
+  }
+
+  customElements.define('my-app', MyApp);
+
+</script>
